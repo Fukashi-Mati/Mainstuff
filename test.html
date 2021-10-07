@@ -18,15 +18,22 @@
     </div>
   </header>
   <div>
-    <aside style="background-color:#DDD;width:20%;float:left;">
+    <aside style="background-color:#DDD;">
       <nav>
-        Left menu
+        <ul>
+          <li><a href="test.html">Strona główna</a></li>
+          <li><a href="test.html">Lokalizacje</a></li>
+          <li><a href="test.html">Aplikacja mobilna</a></li>
+          <li><a href="test.html">Abonamenty</a></li>
+          <li><a href="test.html">Rejestracja</a></li>
+        </ul>
+
       </nav>
     </aside>
 
-    <main style="background-color:#FFF;width:60%;float:left;">
+    <main style="background-color:#FFF;">
       Potrzeboujesz się naładować? Odwiedź nas!
-      <section>
+      <section id="cennik">
         <h2>Cennik</h2>
         <table>
           <thead>
@@ -63,14 +70,14 @@
           </tbody>
         </table>
       </section>
-      <section>
+      <section id="galeria">
         <h2>Galeria</h2>
         <figure>
           <img src="./stacja.jpg" width="500" alt="stacja ładowania">
           <figcaption>Ładna stacja i ładowanie samochodu</figcaption>
         </figure>
       </section>
-      <section>
+      <section id="reklama">
         <h2>Reklama</h2>
         <video width="800" controls>
           <source src="./microx.mov" type="video/mov">
@@ -78,7 +85,7 @@
           nieobsługiwania HTML Video.
         </video>
       </section>
-      <section>
+      <section id="kontakt">
         <h2>Kontakt</h2>
         <form action="index.html" target="_self" method="get">
           <table>
@@ -105,9 +112,15 @@
         </form>
       </section>
     </main>
-    <aside style="background-color:#DDD;width:20%;float:right;">
+    <aside style="background-color:#DDD;">
       <nav>
-        right menu?
+        <ul>
+          <li><a href="#top">Do góry</a></li>
+          <li><a href="#cennik">Cennik</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#reklama">Reklama</a></li>
+          <li><a href="Kontakt">Kontakt</a></li>
+        </ul>
       </nav>
     </aside>
   </div>
