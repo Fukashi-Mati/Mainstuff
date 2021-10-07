@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mati</title>
+</head>
+
+<body>
+  <header style="background-color:#CCC;">
+
+    <div class="logo">
+      <h2 style="margin-bottom:0;text-align:center;">Ładowarkomania</h2>
+      <svg width="100">
+        <circle cs="50" cy="50" r="20" fill="blue"></circle>
+      </svg>
+    </div>
+  </header>
+  <div>
+    <aside style="background-color:#DDD;width:20%;float:left;">
+      <nav>
+        Left menu
+      </nav>
+    </aside>
+
+    <main style="background-color:#FFF;width:60%;float:left;">
+      Potrzeboujesz się naładować? Odwiedź nas!
+      <section>
+        <h2>Cennik</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nazwa</th>
+              <th>Typ ładowania</th>
+              <th>Limit kWh</th>
+              <th colspan="2">Cena</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Żółwik</td>
+              <td>Powolny</td>
+              <td>250</td>
+              <td>50 zł</td>
+              <td>/ 45 zł</td>
+            </tr>
+            <tr>
+              <td>Zając</td>
+              <td>Super szybki</td>
+              <td>100</td>
+              <td>70 zł</td>
+              <td>/ 65 zł</td>
+            </tr>
+            <tr>
+              <td>Nosorożec</td>
+              <td>Szybki</td>
+              <td>500</td>
+              <td>100 zł</td>
+              <td>/ 95 zł</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>Galeria</h2>
+        <figure>
+          <img src="./stacja.jpg" width="500" alt="stacja ładowania">
+          <figcaption>Ładna stacja i ładowanie samochodu</figcaption>
+        </figure>
+      </section>
+      <section>
+        <h2>Reklama</h2>
+        <video width="800" controls>
+          <source src="./microx.mov" type="video/mov">
+          Alternatywny tekst w razie
+          nieobsługiwania HTML Video.
+        </video>
+      </section>
+      <section>
+        <h2>Kontakt</h2>
+        <form action="index.html" target="_self" method="get">
+          <table>
+            <tr>
+              <td><label for="fname">Imię:</label></td>
+              <td><input type="text" id="fname" name="fname" size="30" placeholder="Jan" /></td>
+            </tr>
+            <tr>
+              <td><label for="lname">Nazwisko:</label></td>
+              <td><input type="text" id="lname" name="lname" size="30" placeholder="Kowalski" /></td>
+            </tr>
+            <tr>
+              <td><label for="num">Telefon:</label></td>
+              <td><input type="number" id="num" name="num" size="9" placeholder="123456789"/></td>
+            </tr>
+            <tr>
+              <td><label for="wiad">Wiadomość</label></td>
+              <td><textarea rows="3" cols="30"></textarea></td>
+            </tr>
+            <tr>
+              <td><input type="submit" value="Wyślij"></td>
+            </tr>
+          </table>
+        </form>
+      </section>
+    </main>
+    <aside style="background-color:#DDD;width:20%;float:right;">
+      <nav>
+        right menu?
+      </nav>
+    </aside>
+  </div>
+  <footer style="background-color:#CCC;clear:both;text-align:center;">
+    <p>Copyright &copy; MI</p>
+  </footer>
+</body>
+
+</html>
