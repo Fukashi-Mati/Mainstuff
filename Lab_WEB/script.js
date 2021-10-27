@@ -1,26 +1,20 @@
-data = `[{
-  "nazwa":"Żółwik",
-  "typ":"Powolny",
-  "limit": "250",
-  "cena1":"50 zl",
-  "cena2": "/ 45 zl"
-},
-{
-  "nazwa":"Żółwik",
-  "typ":"Powolny",
-  "limit": "250",
-  "cena1":"50 zl",
-  "cena2": "/ 45 zl"
-},
-{
-  "nazwa":"Żółwik",
-  "typ":"Powolny",
-  "limit": "250",
-  "cena1":"50 zl",
-  "cena2": "/ 45 zl"
+//security.fileuri.strict_origin_policy = false Firefox to work
+
+function wczytajDaneTabeli() {
+  var result = null;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", "data.json", false);
+  xmlhttp.send();
+  if (xmlhttp.status == 200) {
+      result = xmlhttp.responseText;
+  }
+  return result;
 }
-]`;
+var data = wczytajDaneTabeli();
 var mydata = JSON.parse(data);
+
+
+
 var tablee = document.getElementById('mytable');
 for(var i = 0; i < mydata.length; i++){
   var row = `<tr>
@@ -44,7 +38,6 @@ for(var i = 0; i < mydata.length; i++){
   //Stopka
   let years = document.getElementById("year");
   years.innerHTML = new Date().getFullYear();
-  //nazwa spzpp, nip, ulica, kod poczt, miejscorwosc, kraj
   class Firma 
   {
     constructor(fullnazwa, nip, ulica, kod_pocztowy,miasto, kraj){
@@ -86,6 +79,28 @@ for(var i = 0; i < mydata.length; i++){
   function odsun(){
     napis.style.color = "black";
   }
+
+//   function init() {
+//     loadJSON(function(response) {
+//      // Parse JSON string into object
+//        var actual_JSON = JSON.parse(response);
+//        Console.log(actual_JSON);
+//     });
+//    }
+  
+//  function loadJSON(callback) {   
+
+//   var xobj = new XMLHttpRequest();
+//       xobj.overrideMimeType("application/json");
+//       xobj.open('GET', 'data.json', true); // Replace 'my_data' with the path to your file
+//       xobj.onreadystatechange = function () {
+//         if (xobj.readyState == 4 && xobj.status == "200") {
+//           // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+//           callback(xobj.responseText);
+//         }
+//   };
+//   xobj.send(null);  
+// }
   napis.addEventListener("mouseover", nasun);
   napis.addEventListener("mouseout", odsun);
 

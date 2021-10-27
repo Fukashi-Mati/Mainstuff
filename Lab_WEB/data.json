@@ -6,17 +6,17 @@
     "cena2": "/ 45 zl"
 },
 {
-    "nazwa":"Żółwik",
-    "typ":"Powolny",
-    "limit": "250",
-    "cena1":"50 zl",
-    "cena2": "/ 45 zl"
+    "nazwa":"Zając",
+    "typ":"Super szybki",
+    "limit": "100",
+    "cena1":"70 zl",
+    "cena2": "/ 65 zl"
 },
 {
-    "nazwa":"Żółwik",
-    "typ":"Powolny",
-    "limit": "250",
-    "cena1":"50 zl",
-    "cena2": "/ 45 zl"
+    "nazwa":"Nosorożec",
+    "typ":"Szybki",
+    "limit": "500",
+    "cena1":"100 zl",
+    "cena2": "/ 95 zl"
 }
 ]
