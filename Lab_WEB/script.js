@@ -62,9 +62,31 @@ function menuLanguageSelection(languages, xml) {
   });
 }
 
-loadMenu(languages, 'en');
 
-
+let coooo = readCookie("language")
+loadMenu(languages, coooo);
+createCookie("language", "en", Date.UTC(2021, 10, 29));
+function readCookie(name) {
+  let key = name + "=";
+  let cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i];
+    while (cookie.charAt(0) === ' ') {
+            cookie = cookie.substring(1, cookie.length);
+        }
+    if (cookie.indexOf(key) === 0) {
+            return cookie.substring(key.length, cookie.length);
+        }
+  }
+  return null;
+}
+function createCookie(key, value, date) {
+  const expiration = new Date(date).toUTCString();
+  console.log(expiration);
+  const cookie = escape(key) + "=" + escape(value) + ";expires=" + expiration + ";";
+  document.cookie = cookie;
+  
+}
 //Nagłówek
 let naglowek = document.getElementById("naglowek");
 naglowek.style.fontSize = "100px";
