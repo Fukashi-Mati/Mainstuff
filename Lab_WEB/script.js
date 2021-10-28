@@ -59,13 +59,13 @@ function menuLanguageSelection(languages, xml) {
           }
       }
       loadMenu(languages, lang);
+      createCookie("language", lang,  Date.UTC(2021, 10, 29));
   });
 }
 
 
 let coooo = readCookie("language")
 loadMenu(languages, coooo);
-createCookie("language", "en", Date.UTC(2021, 10, 29));
 function readCookie(name) {
   let key = name + "=";
   let cookies = document.cookie.split(';');
