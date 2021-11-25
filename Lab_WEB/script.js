@@ -157,6 +157,7 @@ var mydata = JSON.parse(data);
 
 
 var tablee = document.getElementById('mytable');
+var opcje = document.getElementById('cars');
 for (var i = 0; i < mydata.length; i++) {
   var row = `<tr>
           <td>${mydata[i].nazwa}</td>
@@ -165,6 +166,7 @@ for (var i = 0; i < mydata.length; i++) {
           <td>${mydata[i].cena1}</td>
           <td>${mydata[i].cena2}</td>
     </tr>`;
-
+  var optio = `<option value='${mydata[i].nazwa}'>${mydata[i].nazwa}</option>`;
+  opcje.innerHTML += optio;
   tablee.innerHTML += row;
 }

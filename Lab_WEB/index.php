@@ -35,31 +35,23 @@
                             <th colspan="2">Cena</th>
                         </tr>
                     </thead>
-                    <tbody id="mytable">
-                        <script>
-                            {}
-                        </script>
-                    </tbody>
+                    <tbody id="mytable"></tbody>
                 </table>
-
             </section>
+</br></br>
             <section>
                 <div id="kalk">
-                    <form method="POST">
+                    <form class='formu' method="POST">
                         <label for="typ">Typ:</label>
                         <select name="typ" id="cars">
-                            <option value="50">Żółwik</option>
-                            <option value="70">Zając</option>
-                            <option value="100">Nosorożec</option>
                         </select>
                         <label for="liczba">Liczba miesięcy:</label>
                         <input type="text" name="liczba" /><br />
-                        <input type="submit" name="pods" id="przycisk">
+                        <button type="submit" name="pods" id="przycisk">Sprawdź cenę</button>
                     </form>
                 </div>
             </section>
             <?php
-
             function saveMyFile($fileName, $data)
             {
                 $file = @fopen($fileName, "a");
@@ -70,19 +62,30 @@
                 fwrite($file, $data);
                 fclose($file);
             }
+
             if (isset($_POST['pods'])) {
+                $dane = file_get_contents("data.json");
+                $dane = json_decode($dane);
+                $pakiety = [];
+                foreach($dane as $d)
+                array_push($pakiety,get_object_vars($d));
+
+
                 $mno = $_POST['typ'];
                 $mies = $_POST['liczba'];
+
+                foreach($pakiety as $pakiet){
+                    if($pakiet["nazwa"] == $mno){
+                        $mno = (int)$pakiet["cena1"];
+                    }
+                }
+
                 $wynik = $mno * $mies;
-                $data = "To wyjdzie $wynik zł <h1> :/ </h1>";
-                $log = "Kilien obliczył miesięczny koszt $mno przez $mies miesięcy na kwotę $wynik zł ".PHP_EOL;
+                $data = "<h2>To wyjdzie $wynik zł</h2> <h1> :/ </h1>";
+                $log = "Klient obliczył miesięczny koszt $mno przez $mies miesięcy na kwotę $wynik zł ".PHP_EOL;
                 echo $data;
                 SaveMyFile("logi.txt", $log);
             }
-
-
-
-
             ?>
             <section id="galeria">
                 <h2>Galeria</h2>
@@ -179,7 +182,5 @@
     <footer>
         <p>Copyright &copy; 2019 - <span id="year"></span> MI</p>
     </footer>
-
 </body>
-
 </html>
