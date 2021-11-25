@@ -70,7 +70,7 @@
                 foreach($dane as $d)
                 array_push($pakiety,get_object_vars($d));
 
-
+                $typ = $_POST['typ'];
                 $mno = $_POST['typ'];
                 $mies = $_POST['liczba'];
 
@@ -85,8 +85,17 @@
                 $log = "Klient obliczył miesięczny koszt $mno przez $mies miesięcy na kwotę $wynik zł ".PHP_EOL;
                 echo $data;
                 SaveMyFile("logi.txt", $log);
+                $log2 = "$typ".PHP_EOL;
+                saveMyFile("log.txt", $log2);
             }
             ?>
+            <section id="dane">
+            <?php
+
+
+            ?>
+
+            </section>
             <section id="galeria">
                 <h2>Galeria</h2>
                 <figure>

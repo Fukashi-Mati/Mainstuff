@@ -17,3 +17,7 @@ Klient obliczył miesięczny koszt 70 przez 700 miesięcy na kwotę 49000 zł
 Klient obliczył miesięczny koszt 70 przez 700 miesięcy na kwotę 49000 zł 
 Klient obliczył miesięczny koszt 70 przez 700 miesięcy na kwotę 49000 zł 
 Klient obliczył miesięczny koszt 100 przez 4 miesięcy na kwotę 400 zł 
+Klient obliczył miesięczny koszt 70 przez 6 miesięcy na kwotę 420 zł 
+Klient obliczył miesięczny koszt 70 przez 6 miesięcy na kwotę 420 zł 
+Klient obliczył miesięczny koszt 100 przez 7 miesięcy na kwotę 700 zł 
+Klient obliczył miesięczny koszt 50 przez 5 miesięcy na kwotę 250 zł 
