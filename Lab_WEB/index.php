@@ -7,6 +7,7 @@
     <title>Mati</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
@@ -89,9 +90,11 @@
                 saveMyFile("log.txt", $log2);
             }
             ?>
-            <section id="dane">
+            <section id="Stats">
             <?php
-
+                require_once('./Controller/Controller.php');
+                $Ctrl = new Controller();
+                $Ctrl->test();
 
             ?>
 
