@@ -17,8 +17,8 @@
 <link>index.html</link>
 </item>
 <item>
-<name>Register</name>
-<link>index.html</link>
+<name>Login</name>
+<link>login.php</link>
 </item>
 <language>English</language>
 <languageShort>en</languageShort>
