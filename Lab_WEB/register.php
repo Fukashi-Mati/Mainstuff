@@ -6,8 +6,18 @@ if(isset($_POST['rejestracja'])){
     $user = $_POST['uName'];
     $pass1 = $_POST['pass'];
     $pass2 = $_POST['rpass'];
-    if($pass1 == $pass2){
-      addUser($imie, $nazw, $email, $user, $pass1);
+
+    if($pass1 == $pass2 ){
+      if(userCheck($user)){
+        addUser($imie, $nazw, $email, $user, $pass1);
+        echo("Rejestracja przebiegla z sukcesem");
+      }
+      else{
+        echo("Uzytkownik istnieje");
+      }
+    }
+    else{
+      echo("Niepoprawnie powtozone haslo");
     }
 }
 
@@ -23,13 +33,6 @@ if(isset($_POST['rejestracja'])){
   <div> 
     <h2>Rejestracja</h2>
     <hr /> 
-  </div>
-  <div id="error">
-    <?php if(count($errors) > 0) : ?>
-      <?php foreach($errors as $error) : ?>
-        <p><?php echo $error ?></p>
-      <?php endforeach ?>
-    <?php endif ?>
   </div>
   <div id="formularz">
     <form action="register.php" method="POST">

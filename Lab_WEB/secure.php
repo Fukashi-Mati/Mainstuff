@@ -8,7 +8,7 @@
   $dbUser = 'root';
   $dbPass = '';
   $dbName = "myDB";
-  $dbTableName = "uzytkownicy";
+  $dbTableName = "uzytkownicy1";
   
   $fName = "";
   $lName = "";
@@ -52,11 +52,4 @@
     echo 'Nie mo&#380;na utworzy&#263; tabeli: ' . $conn->error . '<br />';
   }
 
-  if(isset($_POST['logowanie']))
-  {
-      $name = $_POST['uName'];
-      $user = $_POST['pass'];
-
-      $password = md5($pass);
-  }
 ?>

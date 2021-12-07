@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once('secure.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
 
@@ -91,10 +96,13 @@
             }
             ?>
             <section id="Stats">
+        </br>
             <?php
-                require_once('./Controller/Controller.php');
-                $Ctrl = new Controller();
-                $Ctrl->test();
+                if(!empty($_SESSION['username'])){
+                    require_once('./Controller/Controller.php');
+                    $Ctrl = new Controller();
+                    $Ctrl->test();
+                }
 
             ?>
 
@@ -179,6 +187,7 @@
                     <li><a href="#galeria">Galeria</a></li>
                     <li><a href="#reklama">Reklama</a></li>
                     <li><a href="Kontakt">Kontakt</a></li>
+                    <li><a href="logout.php">Wyloguj</a></li>
                 </ul>
                 <div>
                     <span id="fullnazwa"></span>

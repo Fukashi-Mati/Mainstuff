@@ -1,11 +1,24 @@
 <?php include('funkcje.php');
 
+session_start();
 if(isset($_POST['logowanie'])){
     $name = $_POST['uName'];
-    $user = $_POST['pass'];
-
+    $pass = $_POST['pass'];
+    $name = trim($name, ";");
     $password = md5($pass);
-    
+    $passsdb = getPass($name);
+    if(!userCheck($name)){
+      if($password == $passsdb){
+          $_SESSION['username'] = $name;
+          header("Location: /Lab_WEB/index.php");
+      }
+      else{
+        echo("Bledne haslo");
+      }
+    }
+    else{
+      echo("Nie znaleziono uzytkownika");
+    }
 }
 
 
