@@ -1,4 +1,9 @@
 //security.fileuri.strict_origin_policy = false Firefox to work
+
+
+
+
+
 const languages = [
   ["pl", "Polski"],
   ["en", "English"]
@@ -29,8 +34,9 @@ function displayMenu(xml) {
   list = '<ul>';
   x = xmlDoc.getElementsByTagName("item");
   for (i = 0; i < x.length; i++) {
-    list += '<li><a href="' +
-      x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue + '">'
+    list += '<li><a class="menu" href="' +
+      x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue + '" data-target= "'+ x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+      '"">'
       + x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue + '</a></li>';
   }
   list += '</ul>';
@@ -170,3 +176,35 @@ for (var i = 0; i < mydata.length; i++) {
   opcje.innerHTML += optio;
   tablee.innerHTML += row;
 }
+
+
+const app = {
+  pages: [],
+  show: new Event('show'),
+  init: function(){
+      app.pages = document.querySelectorAll('.strona');
+      app.pages.forEach((strona) => {
+        strona.addEventListener('show', app.pageShown);
+      });
+      document.querySelectorAll('.menu').forEach((link) => {
+          link.addEventListener('click', app.nav);
+      });
+      history.replaceState({}, 'Strona Główna', '#');
+  },
+  nav: function(zdarzenie){
+    zdarzenie.preventDefault();
+      let currentPage = zdarzenie.target.getAttribute('data-target');
+      document.querySelector('.aktywna').classList.remove('aktywna');
+      document.getElementById(currentPage).classList.add('aktywna');
+      history.pushState({}, currentPage, `#${currentPage}`);
+      document.getElementById(currentPage).dispatchEvent(app.show);
+  },
+  historia: function(zdarzenie){
+    let hash = location.hash.replace('#' ,'');
+    document.querySelector('.aktywna').classList.remove('aktywna');
+    document.getElementById(hash).classList.add('aktywna');
+    document.getElementById(hash).dispatchEvent(app.show);
+}
+}
+
+document.addEventListener('DOMContentLoaded', app.init);

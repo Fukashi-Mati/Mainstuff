@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once('secure.php');
 ?>
 
@@ -30,7 +30,7 @@ require_once('secure.php');
 
         <main>
             Potrzeboujesz się naładowac? Odwiedź nas!
-            <section id="cennik">
+            <section class="strona aktywna" id="Strona Główna">
                 <h2>Cennik</h2>
                 <table class="tabela">
                     <thead>
@@ -45,7 +45,7 @@ require_once('secure.php');
                 </table>
             </section>
 </br></br>
-            <section>
+            <section class="strona" id="Kalkulator">
                 <div id="kalk">
                     <form class='formu' method="POST">
                         <label for="typ">Typ:</label>
@@ -95,9 +95,10 @@ require_once('secure.php');
                 saveMyFile("log.txt", $log2);
             }
             ?>
-            <section id="Stats">
+        <section class="strona" id="Tabelki">
         </br>
             <?php
+            //session_start();
                 if(!empty($_SESSION['username'])){
                     require_once('./Controller/Controller.php');
                     $Ctrl = new Controller();
@@ -107,14 +108,14 @@ require_once('secure.php');
             ?>
 
             </section>
-            <section id="galeria">
+            <section class="strona" id="Galeria">
                 <h2>Galeria</h2>
                 <figure>
                     <img src="./stacja.jpg" width="1800" alt="stacja �adowania">
                     <figcaption>Ładna stacja i ładowanie samochodu</figcaption>
                 </figure>
             </section>
-            <section>
+            <section class="strona" id="Opinie">
                 <h2>Opinie</h2>
                 <div class="opinie">
                     <article class="komentarz">
@@ -144,7 +145,7 @@ require_once('secure.php');
                     </article>
                 </div>
             </section>
-            <section id="reklama">
+            <section class="strona" id="Reklama">
                 <h2>Reklama</h2>
                 <video width="800" controls>
                     <source src="./microx.mov" type="video/mov">
@@ -152,7 +153,7 @@ require_once('secure.php');
                     nieobsługiwania HTML Video.
                 </video>
             </section>
-            <section id="kontakt">
+            <section class="strona" id="Kontakt">
                 <h2>Kontakt</h2>
                 <form action="index.html" target="_self" method="get">
                     <table>
@@ -179,6 +180,7 @@ require_once('secure.php');
                 </form>
             </section>
         </main>
+        
         <aside>
             <nav>
                 <ul>
@@ -187,6 +189,7 @@ require_once('secure.php');
                     <li><a href="#galeria">Galeria</a></li>
                     <li><a href="#reklama">Reklama</a></li>
                     <li><a href="Kontakt">Kontakt</a></li>
+                    <li><a href="login.php">Zaloguj</a></li>
                     <li><a href="logout.php">Wyloguj</a></li>
                 </ul>
                 <div>
