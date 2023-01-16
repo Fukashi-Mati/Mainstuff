@@ -11,8 +11,10 @@ def getAndSendTemperature(sense):
     keyLocation = 'key.pem'
     topic = 'temp2'
     password = 'student123'
+    KAFKA_VERSION = (3,3,1)
 
     producer = KafkaProducer(bootstrap_servers=kafkaBrokers,
+                             api_version=KAFKA_VERSION,
                              security_protocol='SSL',
                              ssl_check_hostname=True,
                              ssl_cafile=caRootLocation,
