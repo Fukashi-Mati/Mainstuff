@@ -30,5 +30,6 @@ while True:
         num2 = 0
     else:
         getAndSendTemperature(sense)
+        print("wysylam")
         num2 += 1
     sleep(1)
