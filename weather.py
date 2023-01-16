@@ -4,11 +4,12 @@ import time
 import sys
 def getAndSendTemperature(sens):
 
-    temperature = 25
+    temperature = sens.temp
     KAFKA_HOST = "192.168.0.103:9092"
     config = SslConfig(cafile='CARoot.pem',
                        certfile='certificate.pem',
-                       keyfile='key.pem')
+                       keyfile='key.pem',
+                       password='student123')
     client = KafkaClient(hosts=KAFKA_HOST, ssl_config=config)
     topic = client.topics["temp2"]
 
