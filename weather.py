@@ -1,38 +1,29 @@
-from kafka import KafkaProducer
+from pykafka import KafkaClient
 from sense_emu import SenseHat
+from datetime import date
 import time
 import sys
-def getAndSendTemperature(sense):
+def getAndSendTemperature(sens):
 
-    temperature = sense.temp
-    kafkaBrokers = '192.168.0.105:9092'
-    caRootLocation = 'CARoot.pem'
-    certLocation = 'certificate.pem'
-    keyLocation = 'key.pem'
-    topic = 'temp2'
-    password = 'student123'
-    KAFKA_VERSION = (3,3,1)
-
-    producer = KafkaProducer(bootstrap_servers=kafkaBrokers,
-                             api_version=KAFKA_VERSION,
-                             security_protocol='SSL',
-                             ssl_check_hostname=True,
-                             ssl_cafile=caRootLocation,
-                             ssl_certfile=certLocation,
-                             ssl_keyfile=keyLocation,
-                             ssl_password=password)
-
-    producer.send(topic, bytes(str(temperature), 'utf-8'))
-    producer.flush()
+    temperature = sens.temp
+    KAFKA_HOST = "192.168.0.103:9092"
+    client = KafkaClient(hosts=KAFKA_HOST)
+    topic = client.topics["temp_fin"]
+    datawrite = date.now()
+    with topic.get_sync_producer() as producer:
+        message = str(datawrite) + '-' + str(temperature)
+        encoded_message = message.encode("utf-8")
+        producer.produce(encoded_message)
 
 
 sense = SenseHat()
 num = int(sys.argv[1])
 num2 = 0
 while True:
-    if num <= num2:
-        num2 = 0
+    if num >= num2:
+
+        num2 += 1
     else:
         getAndSendTemperature(sense)
-        num2 += 1
+        num2 = 0
     time.sleep(1)
